@@ -5,21 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TDC</title>
     <link rel="stylesheet" href="TDC.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    
     <div class="main-container">
         <div class="slider-container">
-            <label for="slider">Select a value (0 to 10):</label>
-            <input type="range" id="slider" min="0" max="10" step="0.1" value="5">
+            <label for="slider">Select a value (-0.4 to 0.4):</label>
+            <input type="range" id="slider" min="-0.4" max="0.4" step="0.1" value="5">
             <span id="sliderValue">5</span>
         </div>
         <div class="checkbox-container">
             <label for="perturbacion">Ingresar a un tunel</label>
             <input type="checkbox" id="myCheckbox">
-            <span id="perturbacion">Perturbacion: no</p>
+            <span id="perturbacion">Perturbacion: no</span>
+        </div>
+
+        <!-- Flex container for the charts -->
+        <div class="charts">
+            <canvas id="ChartSalida" width="50" height="50"></canvas>
+            <canvas id="ChartMedicion" width="50" height="50"></canvas>
+            <canvas id="ChartError" width="50" height="50"></canvas>
         </div>
     </div>
-    
 
     <script src="TDC.js"></script>
 </body>

@@ -18,3 +18,11 @@ body {
 input[type="range"] {
     width: 300px;
 }
+
+.charts {
+    display: flex; /* Make the container use flex layout */
+    justify-content: space-evenly; /* Distribute the canvases evenly across the container */
+    gap: 20px; /* Optional: Adds space between each canvas */
+    width: 100%; /* Ensure it takes the full width available */
+    max-width: 800px; /* Optional: Limit the max width of the charts container */
+}
