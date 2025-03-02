@@ -143,20 +143,6 @@ medicion.addEventListener('input', () => {
 const aplicarControlDerivativo = (variableAControlar) => {
     
     return entrada;
-    /*
-    var diferencia = variableAControlar - (entrada * kd);
-    diferencia = Math.abs(diferencia);
-    
-    return diferencia >= 10 ? diferencia - 10 : diferencia - entrada;*/
-
-    /*
-    if(variableAControlar >= 3){
-        return 0;
-    }
-    if(variableAControlar < 0){
-        return 2;
-    }
-    else return 0;*/
 }
 
 const aplicarControlProporcional = (variableAControlar) => {
@@ -178,45 +164,6 @@ const aplicarControlProporcional = (variableAControlar) => {
         correccion = variableAControlar - diferencia;
     }
     return correccion;
-    
-    /*
-    if(variableAControlar > 3){
-        return variableControlada = variableAControlar >= 3 ? 3 : variableAControlar;
-    }
-    */
-   /*
-    if(variableAControlar <= -8){
-        return 1.5;
-    } 
-    else if (variableAControlar < -6 && variableAControlar >= -8){
-        return 1.6;
-    } 
-    else if (variableAControlar < -5 && variableAControlar >=-6){
-        return 1.7
-    }
-    else if (variableAControlar < -4 && variableAControlar >= -5){
-        return 1.8;
-    }
-    else if (variableAControlar <-3 && variableAControlar >= -4){
-        return 1.9;
-    }
-    else if (variableAControlar === -3){
-        return 2;
-    }
-    else if (variableAControlar < -2 && variableAControlar > -3){
-        return 2.2;
-    }
-    else if (variableAControlar < -1 && variableAControlar >= -2){
-        return 2.4;
-    }
-    else if (variableAControlar < 0 && variableAControlar >= -1){
-        return 2.6;
-    }
-    else if (variableAControlar < 1 && variableAControlar >= -2){
-        return 2.8;
-    }
-    else return 3*/
-    /*else return 1.5;*/
 }
 
 
@@ -233,7 +180,6 @@ const aplicarControl = (variableAControlar) => {
     console.log(`valor de variableAControlar: ${variableAControlar}`);
     if(perturbacion === "si"){
         resultadoControlDerivativo = aplicarControlDerivativo(variableAControlar);
-       // console.log(`valor de resultadoControlDerivativo: ${resultadoControlDerivativo}`);
         perturbacion = "no";
         document.getElementById("perturbacion").innerText = "Perturbacion: " + perturbacion;
         return (aplicarControlProporcional(variableAControlar) + aplicarControlDerivativo(variableAControlar))/2;
@@ -255,13 +201,11 @@ const aplicarControl = (variableAControlar) => {
         resultadoControl = resultadoControlProporcional;
     }
     return resultadoControl;
-    //return resultadoControl > 3 ? 3 : resultadoControl;
 } 
 
 const calcularError = () => {
     var e = 0;
     
-
     if (f === 0){
         e = entrada - f;
     } e
@@ -310,25 +254,5 @@ setInterval(() => {
         dataError.datasets[0].data.shift();
     }
     errorChart.update();
-
-    /*
-    var variableControlada = aplicarControlProporcional(e);
-    console.log(`valor de f: ${f}`);
-    console.log(`valor de e: ${e}`);
-    console.log(`valor variableControlada: ${variableControlada}`);
-    */
-
-
-    /*
-    f = parseFloat(medicion.value);
-    e = entrada - f;
-    var variableControlada = aplicarControl(e);
-    if(variableControlada != 2){
-        variableControlada = aplicarControl(variableControlada);
-    }
-
-    console.log(`valor de f: ${f}`);
-    console.log(`valor de e: ${e}`);
-    console.log(`valor controlado: ${variableControlada}`)*/
     
 }, 1000);
